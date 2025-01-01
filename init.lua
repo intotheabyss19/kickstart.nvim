@@ -337,27 +337,27 @@ require('lazy').setup({
   -- Use the `dependencies` key to specify the dependencies of a particular plugin
   ---@type LazySpec
   {
-    "mikavilpas/yazi.nvim",
-    event = "VeryLazy",
+    'mikavilpas/yazi.nvim',
+    event = 'VeryLazy',
     keys = {
       -- 👇 in this section, choose your own keymappings!
       {
-        "<leader>y",
-        "<cmd>Yazi<cr>",
-        desc = "Open yazi at the current file",
+        '<leader>y',
+        '<cmd>Yazi<cr>',
+        desc = 'Open yazi at the current file',
       },
       {
         -- Open in the current working directory
-        "<leader>cw",
-        "<cmd>Yazi cwd<cr>",
-        desc = "Open the file manager in nvim's working directory" ,
+        '<leader>cw',
+        '<cmd>Yazi cwd<cr>',
+        desc = "Open the file manager in nvim's working directory",
       },
       {
         -- NOTE: this requires a version of yazi that includes
         -- https://github.com/sxyazi/yazi/pull/1305 from 2024-07-18
-        '<c-up>',
-        "<cmd>Yazi toggle<cr>",
-        desc = "Resume the last yazi session",
+        '<leader>Y',
+        '<cmd>Yazi toggle<cr>',
+        desc = 'Resume the last yazi session',
       },
     },
   },
@@ -424,6 +424,8 @@ require('lazy').setup({
           },
         },
       }
+      -- Added Treesitter
+      require('lazy').setup { { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' } }
 
       -- Enable Telescope extensions if they are installed
       pcall(require('telescope').load_extension, 'fzf')
@@ -645,7 +647,7 @@ require('lazy').setup({
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
         clangd = {},
-        gopls = {},
+        -- gopls = {},
         -- pyright = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
